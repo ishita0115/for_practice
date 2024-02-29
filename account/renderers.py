@@ -7,4 +7,6 @@ class UserRenderer(renderers.JSONRenderer):
         response = ''
         if 'ErrorDetail' in str(data):
             response = json.dumps({'errors': data})
-            return super().render(data, accepted_media_type, renderer_context)
+        else:
+            response = json.dumps(data)
+        return response
