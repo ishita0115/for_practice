@@ -28,7 +28,5 @@ class UserModelAdmin(BaseUserAdmin):
     search_fields = ["email"]
     ordering = ["email",'id']
     filter_horizontal = []
-
-
 # Now register the new UserModelAdmin
 admin.site.register(User, UserModelAdmin)
