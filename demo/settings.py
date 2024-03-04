@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 from datetime import timedelta
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -88,6 +88,9 @@ DATABASES = {
 }
 
 AUTH_USER_MODEL = 'account.User'
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+]
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
@@ -140,6 +143,8 @@ REST_FRAMEWORK = {
     ),
 }
 
+
+
 # token .....
 
 
@@ -162,8 +167,8 @@ SIMPLE_JWT = {
 
     "JTI_CLAIM": "jti",
 }
-
+PASSWORD_RESET_TIMEOUT=900
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:8080",
-    "http://127.0.0.1:9000",
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
 ]
